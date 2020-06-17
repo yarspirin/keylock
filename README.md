@@ -1,4 +1,4 @@
-# keyl0ck
+# keylock
 
 A Golang utility package which provides a way to lock a set of keys so that any subsequent call with a non-empty subset of already locked keys makes the goroutine waiting.
 
