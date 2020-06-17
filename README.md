@@ -11,8 +11,8 @@ canceled, unlock := l.LockKeys([]string{"a", "b"}, nil)  // locks {"a", "b"}
 defer unlock()
 
 go func() {
-    _, _ = l.LockKeys([]string{"b", "c"}, nil)  // can't lock {"b", "c"} since "b" has been locked already
-}()
+    _, _ = l.LockKeys([]string{"b", "c"}, nil)  // can't lock {"b", "c"} 
+}()                                             // since "b" has been locked already
 
 time.Sleep(time.Millisecond * 10)
 canceled, _ = l.LockKeys([]string{"d"}, nil)  // locks {"d"}
