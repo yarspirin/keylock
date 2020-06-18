@@ -21,7 +21,7 @@ func timeout(d time.Duration) <-chan struct{} {
 func TestKeyLock_Simple(t *testing.T) {
 	defer goleak.VerifyNone(t)
 
-	l := NewKeyLock()
+	l := New()
 
 	canceled, unlock := l.LockKeys([]string{"a", "b"}, nil)
 	require.False(t, canceled)
@@ -37,7 +37,7 @@ func TestKeyLock_Simple(t *testing.T) {
 
 func TestKeyLock_Progress(t *testing.T) {
 	defer goleak.VerifyNone(t)
-	l := NewKeyLock()
+	l := New()
 
 	canceled, unlock := l.LockKeys([]string{"a", "b"}, nil)
 	require.False(t, canceled)
@@ -56,7 +56,7 @@ func TestKeyLock_DeadlockFree(t *testing.T) {
 	const N = 10000
 
 	defer goleak.VerifyNone(t)
-	l := NewKeyLock()
+	l := New()
 
 	var wg sync.WaitGroup
 	wg.Add(3)
@@ -88,7 +88,7 @@ func TestKeyLock_SingleKeyStress(t *testing.T) {
 	)
 
 	defer goleak.VerifyNone(t)
-	l := NewKeyLock()
+	l := New()
 
 	var wg sync.WaitGroup
 	wg.Add(G)

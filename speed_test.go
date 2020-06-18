@@ -21,7 +21,7 @@ func BenchmarkMutex_Baseline(b *testing.B) {
 }
 
 func BenchmarkKeyLock_SingleKey(b *testing.B) {
-	l := NewKeyLock()
+	l := New()
 
 	keys := []string{"a"}
 
@@ -35,7 +35,7 @@ func BenchmarkKeyLock_SingleKey(b *testing.B) {
 }
 
 func BenchmarkKeyLock_MultipleKeys(b *testing.B) {
-	l := NewKeyLock()
+	l := New()
 
 	keys := []string{"a", "b", "c", "d"}
 
@@ -49,7 +49,7 @@ func BenchmarkKeyLock_MultipleKeys(b *testing.B) {
 }
 
 func BenchmarkKeyLock_DifferentKeys(b *testing.B) {
-	l := NewKeyLock()
+	l := New()
 
 	b.ReportAllocs()
 	b.RunParallel(func(pb *testing.PB) {
@@ -63,7 +63,7 @@ func BenchmarkKeyLock_DifferentKeys(b *testing.B) {
 }
 
 func BenchmarkKeyLock_NoBusyWait(b *testing.B) {
-	l := NewKeyLock()
+	l := New()
 
 	lockedKey := []string{"locked"}
 	l.LockKeys(lockedKey, nil)

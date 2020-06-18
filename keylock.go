@@ -10,7 +10,7 @@ type KeyLock struct {
 	locks map[string]chan struct{}
 }
 
-func NewKeyLock() *KeyLock {
+func New() *KeyLock {
 	return &KeyLock{
 		locks: make(map[string]chan struct{}),
 	}
