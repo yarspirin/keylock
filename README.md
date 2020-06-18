@@ -7,7 +7,7 @@ A Golang utility package which provides a way to lock a set of keys so that any 
 # Usage
 
 ```
-l := keylock.NewKeyLock()
+l := keylock.New()
 
 canceled, unlock := l.LockKeys([]string{"a", "b"}, nil)  // locks {"a", "b"}
 defer unlock()
