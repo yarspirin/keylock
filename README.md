@@ -1,6 +1,6 @@
 # keylock
 
-[![Build Status](https://travis-ci.com/mountain-viewer/keyl0ck.svg?branch=master)](https://travis-ci.com/mountain-viewer/keyl0ck)
+[![Build Status](https://travis-ci.com/mountain-viewer/keylock.svg?branch=master)](https://travis-ci.com/mountain-viewer/keylock)
 
 A Golang utility package which provides a way to lock a set of keys so that any subsequent call with a non-empty subset of already locked keys makes the goroutine waiting.
 
